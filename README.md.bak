@@ -1,0 +1,13 @@
+# Docker_DockerForTheAbsoluteBeginner
+Hands On Codes for practicing
+
+--------------------
+#API Document
+http://docs.docker.com
+
+# How to insall docker on ubuntu
+https://docs.docker.com/engine/install/ubuntu/
+
+¡ØUbuntu Version Check Command
+ - cat /etc/issue
+
