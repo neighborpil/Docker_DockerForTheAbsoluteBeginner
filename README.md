@@ -45,8 +45,6 @@ https://docs.docker.com/engine/install/ubuntu/
    + -d : backgrund에서 동작
  - 커맨드
    + sleep 숫자 : 해당하는 숫자의 초만큼 슬립 상태로 실행된다
-  
-
 
 ## docker ps
  - 현재 실행중인 컨테이너의 정보를 보여준다
@@ -71,8 +69,6 @@ https://docs.docker.com/engine/install/ubuntu/
 ## docker pull 이미지이름
  - 이미지를 다운받는다
  - 다운받은 이미지로 컨테이너를 생성, 실행하지 않는다
-
-
 
 ## docker run -it centos bash
  - 도커를 시작하고 안의 컨테이너에 배쉬로 연결
