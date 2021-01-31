@@ -52,11 +52,19 @@ https://docs.docker.com/engine/install/ubuntu/
 ## docker ps -a
  - 현재 실행중이거나 이전에 실행했던 모든 컨테이너의 정보를 보여준다
 
-## docker stop [컨테이너names]
+## docker stop [컨테이너NAME]
  - 현재 실행중인 컨테이너를 종료한다
+ - 컨테이너 네임은 **docker ps** 커맨드를 했을 때 Names에 나온다
+ - 동작 중인 docker를 stop command에 의해 종료하게 되면, 종료 코드가 (137)로 표시된다(docker ps 메시지에서 Exited(코드)에서 확인 가능)
 
-## docker rm [컨테이너names]
+## docker rm [컨테이너 ID, 컨테이너 NAME]
  - 현재 실행중인 컨테이너를 삭제한다
+ - 컨테이너 ID는 **docker ps** 커맨드를 했을 때 제일 앞 CONTAINER ID, 제일 뒤 CONTAINER NAMES에서 확인 가능하다
+ - 컨테이너 ID는 앞자리 몇개만 있어도 삭제 가능하다
+   + $ docker rm zz0
+ - 컨테이너 ID는 여러개를 한꺼번에 지울 수 있다
+   + $ docker rm zz0 e30
+
 
 ## docker images
  - 현재 로컬에 다운 받아있는 이미지 리스트를 보여준다
