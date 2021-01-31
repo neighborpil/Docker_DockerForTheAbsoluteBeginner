@@ -40,8 +40,8 @@ https://docs.docker.com/engine/install/ubuntu/
    + $ sudo docker run docker/whalesay cowsay Hello-World!
    + 만약 로컬에 이미지가 없다면 다운로드 한 후에 컨테이너를 실행한다
  - 옵션
-   + **-d** : backgrund에서 동작
- - **커맨드**
+   + -d : backgrund에서 동작
+ - 커맨드
    + sleep 숫자 : 해당하는 숫자의 초만큼 슬립 상태로 실행된다
   
 
