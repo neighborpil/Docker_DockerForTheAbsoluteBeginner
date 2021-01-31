@@ -11,7 +11,7 @@ https://docs.docker.com/engine/install/ubuntu/
 ※Ubuntu Version Check Command
  - cat /etc/issue
 
-# 도커 인스톨 방법
+# [도커 인스톨 방법]
  1. 도커 설치 스크립트 다운로드
   - $ curl -fsSL https://get.docker.com -o get-docker.sh
  2. 스크립트 실행
@@ -25,16 +25,16 @@ https://docs.docker.com/engine/install/ubuntu/
 ※ systemctl start 서비스명
  - 프로세스 시작
 
-# wsl 2버전에서 도커 시작방법
+## wsl 2버전에서 도커 시작방법
  - wsl2에서는 systemd가 없어 systemctl을 사용 할 수 없다.
  - 도커를 실행하려면 아래 방식으로 프로세스 시작이 가능하다
    sudo /etc/init.d/docker start
  
 
-# 도커 이미지 사이트
+# [도커 이미지 사이트]
  - https://hub.docker.com
 
-# 도커 커맨드
+# [도커 커맨드]
 
 ## docker run [옵션] **이미지명** [커맨드]
  - 도커 실행방법
