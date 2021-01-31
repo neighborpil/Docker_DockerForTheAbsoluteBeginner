@@ -50,7 +50,6 @@ https://docs.docker.com/engine/install/ubuntu/
  - 도커를 시작하고 안의 컨테이너에 배쉬로 연결
  - 도커내 배쉬에서 빠져나올 때는 **exit** 를 치면 된다
 
-
 ## docker ps
  - 현재 실행중인 컨테이너의 정보를 보여준다
 
@@ -83,3 +82,9 @@ https://docs.docker.com/engine/install/ubuntu/
  - 이미지를 다운만 받는다
  - 다운받은 이미지로 컨테이너를 생성, 실행하지 않는다
 
+
+## docker exec [컨테이너 ID] 명령어
+ - 컨테이너 내부의 명령어를 실행할 때에 사용한다
+``` 
+$ sudo docker exec 406b78f6367f cat /etc/*release*
+```
