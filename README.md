@@ -65,3 +65,7 @@ https://docs.docker.com/engine/install/ubuntu/
 # docker pull 이미지이름
  - 이미지를 다운받는다
  - 다운받은 이미지로 컨테이너를 생성, 실행하지 않는다
+
+# docker run -it centos bash
+ - 도커를 시작하고 안의 컨테이너에 배쉬로 연결
+ - 도커내 배쉬에서 빠져나올 때는 **exit** 를 치면 된다
