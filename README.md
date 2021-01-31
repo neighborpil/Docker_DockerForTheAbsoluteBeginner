@@ -8,64 +8,67 @@ http://docs.docker.com
 # How to insall docker on ubuntu
 https://docs.docker.com/engine/install/ubuntu/
 
-¡ØUbuntu Version Check Command
+â€»Ubuntu Version Check Command
  - cat /etc/issue
 
-# µµÄ¿ ÀÎ½ºÅç ¹æ¹ý
- 1. µµÄ¿ ¼³Ä¡ ½ºÅ©¸³Æ® ´Ù¿î·Îµå
+# ë„ì»¤ ì¸ìŠ¤í†¨ ë°©ë²•
+ 1. ë„ì»¤ ì„¤ì¹˜ ìŠ¤í¬ë¦½íŠ¸ ë‹¤ìš´ë¡œë“œ
   - $ curl -fsSL https://get.docker.com -o get-docker.sh
- 2. ½ºÅ©¸³Æ® ½ÇÇà
+ 2. ìŠ¤í¬ë¦½íŠ¸ ì‹¤í–‰
   - $ sudo sh get-docker.sh
- 3. ¼³Ä¡ ¿Ï·áÈÄ µµÄ¿ ¹öÀü È®ÀÎ
+ 3. ì„¤ì¹˜ ì™„ë£Œí›„ ë„ì»¤ ë²„ì „ í™•ì¸
   - $ sudo docker version
 
-¡Ø systemctl status ¼­ºñ½º¸í
- - ÇÁ·Î¼¼½º°¡ µ¿ÀÛÁßÀÎÁö È®ÀÎ
+â€» systemctl status ì„œë¹„ìŠ¤ëª…
+ - í”„ë¡œì„¸ìŠ¤ê°€ ë™ìž‘ì¤‘ì¸ì§€ í™•ì¸
 
-¡Ø systemctl start ¼­ºñ½º¸í
- - ÇÁ·Î¼¼½º ½ÃÀÛ
+â€» systemctl start ì„œë¹„ìŠ¤ëª…
+ - í”„ë¡œì„¸ìŠ¤ ì‹œìž‘
 
-# wsl 2¹öÀü¿¡¼­ µµÄ¿ ½ÃÀÛ¹æ¹ý
- - wsl2¿¡¼­´Â systemd°¡ ¾ø¾î systemctlÀ» »ç¿ë ÇÒ ¼ö ¾ø´Ù.
- - µµÄ¿¸¦ ½ÇÇàÇÏ·Á¸é ¾Æ·¡ ¹æ½ÄÀ¸·Î ÇÁ·Î¼¼½º ½ÃÀÛÀÌ °¡´ÉÇÏ´Ù
+# wsl 2ë²„ì „ì—ì„œ ë„ì»¤ ì‹œìž‘ë°©ë²•
+ - wsl2ì—ì„œëŠ” systemdê°€ ì—†ì–´ systemctlì„ ì‚¬ìš© í•  ìˆ˜ ì—†ë‹¤.
+ - ë„ì»¤ë¥¼ ì‹¤í–‰í•˜ë ¤ë©´ ì•„ëž˜ ë°©ì‹ìœ¼ë¡œ í”„ë¡œì„¸ìŠ¤ ì‹œìž‘ì´ ê°€ëŠ¥í•˜ë‹¤
    sudo /etc/init.d/docker start
  
 
-# µµÄ¿ ÀÌ¹ÌÁö »çÀÌÆ®
+# ë„ì»¤ ì´ë¯¸ì§€ ì‚¬ì´íŠ¸
  - https://hub.docker.com
 
-# docker run ÀÌ¹ÌÁö¸í
- -µµÄ¿ ½ÇÇà¹æ¹ý
- - whalesay ´Â µµÄ¿ Æ©Åä¸®¾óÀ» À§ÇÑ ÀÌ¹ÌÁöÀÌ´Ù(https://hub.docker.com/search?q=whalesay&type=image)
+# docker run ì´ë¯¸ì§€ëª…
+ -ë„ì»¤ ì‹¤í–‰ë°©ë²•
+ - whalesay ëŠ” ë„ì»¤ íŠœí† ë¦¬ì–¼ì„ ìœ„í•œ ì´ë¯¸ì§€ì´ë‹¤(https://hub.docker.com/search?q=whalesay&type=image)
  - $ sudo docker run docker/whalesay cowsay Hello-World!
- - ¸¸¾à ·ÎÄÃ¿¡ ÀÌ¹ÌÁö°¡ ¾ø´Ù¸é ´Ù¿î·Îµå ÇÑ ÈÄ¿¡ ÄÁÅ×ÀÌ³Ê¸¦ ½ÇÇàÇÑ´Ù
+ - ë§Œì•½ ë¡œì»¬ì— ì´ë¯¸ì§€ê°€ ì—†ë‹¤ë©´ ë‹¤ìš´ë¡œë“œ í•œ í›„ì— ì»¨í…Œì´ë„ˆë¥¼ ì‹¤í–‰í•œë‹¤
+ - **-d** ì˜µì…˜ì„ ì£¼ê²Œ ë˜ë©´ backgrundì—ì„œ 
   
 
-[µµÄ¿ Ä¿¸Çµå]
+[ë„ì»¤ ì»¤ë§¨ë“œ]
 # docker ps
- - ÇöÀç ½ÇÇàÁßÀÎ ÄÁÅ×ÀÌ³ÊÀÇ Á¤º¸¸¦ º¸¿©ÁØ´Ù
+ - í˜„ìž¬ ì‹¤í–‰ì¤‘ì¸ ì»¨í…Œì´ë„ˆì˜ ì •ë³´ë¥¼ ë³´ì—¬ì¤€ë‹¤
 
 # docker ps -a
- - ÇöÀç ½ÇÇàÁßÀÌ°Å³ª ÀÌÀü¿¡ ½ÇÇàÇß´ø ¸ðµç ÄÁÅ×ÀÌ³ÊÀÇ Á¤º¸¸¦ º¸¿©ÁØ´Ù
+ - í˜„ìž¬ ì‹¤í–‰ì¤‘ì´ê±°ë‚˜ ì´ì „ì— ì‹¤í–‰í–ˆë˜ ëª¨ë“  ì»¨í…Œì´ë„ˆì˜ ì •ë³´ë¥¼ ë³´ì—¬ì¤€ë‹¤
 
-# docker stop [ÄÁÅ×ÀÌ³Ênames]
- - ÇöÀç ½ÇÇàÁßÀÎ ÄÁÅ×ÀÌ³Ê¸¦ Á¾·áÇÑ´Ù
+# docker stop [ì»¨í…Œì´ë„ˆnames]
+ - í˜„ìž¬ ì‹¤í–‰ì¤‘ì¸ ì»¨í…Œì´ë„ˆë¥¼ ì¢…ë£Œí•œë‹¤
 
-# docker rm [ÄÁÅ×ÀÌ³Ênames]
- - ÇöÀç ½ÇÇàÁßÀÎ ÄÁÅ×ÀÌ³Ê¸¦ »èÁ¦ÇÑ´Ù
+# docker rm [ì»¨í…Œì´ë„ˆnames]
+ - í˜„ìž¬ ì‹¤í–‰ì¤‘ì¸ ì»¨í…Œì´ë„ˆë¥¼ ì‚­ì œí•œë‹¤
 
 # docker images
- - ÇöÀç ·ÎÄÃ¿¡ ´Ù¿î ¹Þ¾ÆÀÖ´Â ÀÌ¹ÌÁö ¸®½ºÆ®¸¦ º¸¿©ÁØ´Ù
+ - í˜„ìž¬ ë¡œì»¬ì— ë‹¤ìš´ ë°›ì•„ìžˆëŠ” ì´ë¯¸ì§€ ë¦¬ìŠ¤íŠ¸ë¥¼ ë³´ì—¬ì¤€ë‹¤
 
-# docker rmi [ÀÌ¹ÌÁörepository]
- - ÇöÀç ·ÎÄÃ¿¡ ´Ù¿î ¹Þ¾ÆÀÖ´Â ÀÌ¹ÌÁö¸¦ »èÁ¦ÇÑ´Ù
- - ÀÌ¹ÌÁö¸¦ »èÁ¦ÇÏ·Á°í ÇÒ ¶§¿¡´Â ÇØ´çÇÏ´Â ÀÌ¹ÌÁö¸¦ °¡Áö°í µ¿ÀÛÇÏ´Â ÄÁÅ×ÀÌ³Ê°¡ ¾ø´Â °ÍÀ» È®ÀÎÇØ¾ß ÇÑ´Ù
+# docker rmi [ì´ë¯¸ì§€repository]
+ - í˜„ìž¬ ë¡œì»¬ì— ë‹¤ìš´ ë°›ì•„ìžˆëŠ” ì´ë¯¸ì§€ë¥¼ ì‚­ì œí•œë‹¤
+ - ì´ë¯¸ì§€ë¥¼ ì‚­ì œí•˜ë ¤ê³  í•  ë•Œì—ëŠ” í•´ë‹¹í•˜ëŠ” ì´ë¯¸ì§€ë¥¼ ê°€ì§€ê³  ë™ìž‘í•˜ëŠ” ì»¨í…Œì´ë„ˆê°€ ì—†ëŠ” ê²ƒì„ í™•ì¸í•´ì•¼ í•œë‹¤
 
  
-# docker pull ÀÌ¹ÌÁöÀÌ¸§
- - ÀÌ¹ÌÁö¸¦ ´Ù¿î¹Þ´Â´Ù
- - ´Ù¿î¹ÞÀº ÀÌ¹ÌÁö·Î ÄÁÅ×ÀÌ³Ê¸¦ »ý¼º, ½ÇÇàÇÏÁö ¾Ê´Â´Ù
+# docker pull ì´ë¯¸ì§€ì´ë¦„
+ - ì´ë¯¸ì§€ë¥¼ ë‹¤ìš´ë°›ëŠ”ë‹¤
+ - ë‹¤ìš´ë°›ì€ ì´ë¯¸ì§€ë¡œ ì»¨í…Œì´ë„ˆë¥¼ ìƒì„±, ì‹¤í–‰í•˜ì§€ ì•ŠëŠ”ë‹¤
+
+
 
 # docker run -it centos bash
- - µµÄ¿¸¦ ½ÃÀÛÇÏ°í ¾ÈÀÇ ÄÁÅ×ÀÌ³Ê¿¡ ¹è½¬·Î ¿¬°á
- - µµÄ¿³» ¹è½¬¿¡¼­ ºüÁ®³ª¿Ã ¶§´Â **exit** ¸¦ Ä¡¸é µÈ´Ù
+ - ë„ì»¤ë¥¼ ì‹œìž‘í•˜ê³  ì•ˆì˜ ì»¨í…Œì´ë„ˆì— ë°°ì‰¬ë¡œ ì—°ê²°
+ - ë„ì»¤ë‚´ ë°°ì‰¬ì—ì„œ ë¹ ì ¸ë‚˜ì˜¬ ë•ŒëŠ” **exit** ë¥¼ ì¹˜ë©´ ëœë‹¤
