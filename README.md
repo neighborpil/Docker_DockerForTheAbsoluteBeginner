@@ -52,7 +52,7 @@ https://docs.docker.com/engine/install/ubuntu/
 ## docker ps -a
  - 현재 실행중이거나 이전에 실행했던 모든 컨테이너의 정보를 보여준다
 
-## docker stop [컨테이너NAME]
+## docker stop \[컨테이너NAME\]
  - 현재 실행중인 컨테이너를 종료한다
  - 컨테이너 네임은 **docker ps** 커맨드를 했을 때 Names에 나온다
  - 동작 중인 docker를 stop command에 의해 종료하게 되면, 종료 코드가 (137)로 표시된다(docker ps 메시지에서 Exited(코드)에서 확인 가능)
