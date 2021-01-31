@@ -34,12 +34,14 @@ https://docs.docker.com/engine/install/ubuntu/
 # 도커 이미지 사이트
  - https://hub.docker.com
 
-# docker run 이미지명
+# docker run **이미지명** [커맨드]
  - 도커 실행방법
    + whalesay 는 도커 튜토리얼을 위한 이미지이다(https://hub.docker.com/search?q=whalesay&type=image)
    + $ sudo docker run docker/whalesay cowsay Hello-World!
    + 만약 로컬에 이미지가 없다면 다운로드 한 후에 컨테이너를 실행한다
-   + **-d** 옵션을 주게 되면 backgrund에서 
+ - **-d** 옵션을 주게 되면 backgrund에서 
+ - **커맨드**
+   + sleep 숫자 : 해당하는 숫자의 초만큼 슬립 상태로 실행된다
   
 
 [도커 커맨드]
