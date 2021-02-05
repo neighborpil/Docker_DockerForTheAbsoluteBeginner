@@ -68,7 +68,7 @@ docker run -v /opt/datadir:/var/lib/mysql mysql
 ```
    
  - 버전
-   + 여러가지 이미즈이 버전이 있을 경우 버전을 특정할 수 있다. 만약 특정하지 않으면 latest가 설치됨
+   + 여러가지 이미지 버전이 있을 경우 버전을 특정할 수 있다. 만약 특정하지 않으면 latest가 설치됨
    + 버전의 docker images 커맨드를 실행했을 경우의 태그에 해당한다
    + hub.docker.com에서 이미지를 검색해보면 사용 가능한 버전이 나온다
  - 커맨드
