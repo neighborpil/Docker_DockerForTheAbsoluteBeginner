@@ -53,15 +53,23 @@ $ sudo docker run docker/whalesay cowsay Hello-World!
  - 옵션
    + -d : backgrund에서 동작
    + --name [컨테이너 이름] : 컨테이너의 이름을 지정
+   + -p **외부포트**:**내부포트** : 외부 포트와 내부 포트를 연결해준다
  - 버전
    + 여러가지 이미즈이 버전이 있을 경우 버전을 특정할 수 있다. 만약 특정하지 않으면 latest가 설치됨
    + 버전의 docker images 커맨드를 실행했을 경우의 태그에 해당한다
+   + hub.docker.com에서 이미지를 검색해보면 사용 가능한 버전이 나온다
  - 커맨드
    + sleep 숫자 : 해당하는 숫자의 초만큼 슬립 상태로 실행된다
+
+### ubuntu에서 IP 확인하기
+```
+$ hostname -I 
+```
 
 ### docker run -it (centos) bash
  - 도커를 시작하고 안의 컨테이너에 배쉬로 연결
  - 도커내 배쉬에서 빠져나올 때는 **exit** 를 치면 된다
+ - i는 input을 의미하고, t는 terminal을 의미한다
 
 ## docker ps
  - 현재 실행중인 컨테이너의 정보를 보여준다
