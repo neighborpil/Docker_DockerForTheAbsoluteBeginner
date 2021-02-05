@@ -15,23 +15,29 @@ https://docs.docker.com/engine/install/ubuntu/
 
 
 
-## ※Ubuntu Version Check Command
+### ※Ubuntu Version Check Command
 ```
 cat /etc/issue
 ```
 
 # [도커 인스톨 방법]
  1. 도커 설치 스크립트 다운로드
-   - $ curl -fsSL https://get.docker.com -o get-docker.sh
+```
+$ curl -fsSL https://get.docker.com -o get-docker.sh
+```
  2. 스크립트 실행
-   - $ sudo sh get-docker.sh
+```
+$ sudo sh get-docker.sh
+```
  3. 설치 완료후 도커 버전 확인
-   - $ sudo docker version
+```
+$ sudo docker version
+```
 
-※ systemctl status 서비스명
+### ※ systemctl status 서비스명
  - 프로세스가 동작중인지 확인
 
-※ systemctl start 서비스명
+###※ systemctl start 서비스명
  - 프로세스 시작
 
 ## wsl 2버전에서 도커 시작방법
