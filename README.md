@@ -51,7 +51,7 @@ $ sudo docker run docker/whalesay cowsay Hello-World!
 ```
    + 만약 로컬에 이미지가 없다면 다운로드 한 후에 컨테이너를 실행한다
  - 옵션
-   + -d : backgrund에서 동작
+   + -d : backgrund에서 동작(detached모드의 약자)
    + --name [컨테이너 이름] : 컨테이너의 이름을 지정
    + -p **외부포트**:**내부포트** : 외부 포트와 내부 포트를 연결해준다
    + -v **외부경로**:**내부경로** : 컨테이너에서 발생하는 데이터를 외부경로에 저장한다
@@ -117,3 +117,16 @@ $ hostname -I
 ``` 
 $ sudo docker exec 406b78f6367f cat /etc/*release*
 ```
+
+## docker inspect 컨테이너 ID 또는 컨테이너 이름
+ - 컨테이너의 상세 정보를 보여준다
+ 
+## docker logs 컨테이너 ID 또는 컨테이너 이름
+ -  컨테이너의 로그를 보여준다
+ 
+## ※ 만약 도커를 -d옵션을 주지 않고 실행했을 때에 대처법
+ - 이 상태에서는 Ctrl + C를 해도 종료되지 않는다
+ - 다른 터미널을 열어서 거기서 docker stop으로 컨테이너를 종료한다
+ 
+## docker attach 컨테이너 ID
+ - docker run -d옵션으로 detatched되어 백그라운드에서 동작하다가, 다시 foreground에서 동작시키기 위해 사용
