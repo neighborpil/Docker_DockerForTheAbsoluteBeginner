@@ -15,8 +15,10 @@ https://docs.docker.com/engine/install/ubuntu/
 
 
 
-※Ubuntu Version Check Command
- - cat /etc/issue
+## ※Ubuntu Version Check Command
+```
+cat /etc/issue
+```
 
 # [도커 인스톨 방법]
  1. 도커 설치 스크립트 다운로드
