@@ -61,7 +61,7 @@ $ sudo docker run docker/whalesay cowsay Hello-World!
  - 커맨드
    + sleep 숫자 : 해당하는 숫자의 초만큼 슬립 상태로 실행된다
 
-### ubuntu에서 IP 확인하기
+### ※ ubuntu에서 IP 확인하기
 ```
 $ hostname -I 
 ```
