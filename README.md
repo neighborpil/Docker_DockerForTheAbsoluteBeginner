@@ -57,7 +57,7 @@ $ sudo docker version
 ```
 $ sudo docker run docker/whalesay cowsay Hello-World!
 ```
-   + 만약 로컬에 이미지가 없다면 다운로드 한 후에 컨테이너를 실행한다
+   + 만약 로컬에 이미지가 없다면 도커가 자동으로 해당 다운로드 한 후에 컨테이너를 실행한다
  - 옵션
    + -d : backgrund에서 동작(detached모드의 약자)
    + --name [컨테이너 이름] : 컨테이너의 이름을 지정
