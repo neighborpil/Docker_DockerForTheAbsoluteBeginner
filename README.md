@@ -63,8 +63,14 @@ $ sudo docker run docker/whalesay cowsay Hello-World!
    + --name [컨테이너 이름] : 컨테이너의 이름을 지정
    + -p **외부포트**:**내부포트** : 외부 포트와 내부 포트를 연결해준다(도커 인터넷 실행 예제 이미지: kodekloud/simple-app)
    + -v **외부경로**:**내부경로** : 컨테이너에서 발생하는 데이터를 외부경로에 저장한다
+   + -u **사용자명** : 도커 실행을 위한 사용자를 지정한다
 ```
 docker run -v /opt/datadir:/var/lib/mysql mysql
+```
+```
+# cd
+# mkdir my-jenkins-datas
+# docker run -p 8080:8080 -p 50000:50000 -v /root/my-jenkins-datas:/var/jenkins_home -u root jenkins/jenkins:lts
 ```
    
  - 버전
