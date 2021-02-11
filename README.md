@@ -156,3 +156,18 @@ $ sudo docker exec 406b78f6367f cat /etc/*release*
  
 ## docker attach 컨테이너 ID
  - docker run -d옵션으로 detatched되어 백그라운드에서 동작하다가, 다시 foreground에서 동작시키기 위해 사용
+ 
+# [나만의 이미지 만들기]
+
+## 순서
+ 1. OS - Ubuntu
+ 2. Update apt repo
+ 3. install dependencies using apt
+ 4. install python dependencies using PIP
+ 5. Copy source code to /apt folder
+ 6. Run the web server using "flast" command
+ 
+```
+**FROM** Ubuntu
+**RUN** apt-get update && apt-get -y install python
+```
