@@ -85,6 +85,14 @@ docker run -v /opt/datadir:/var/lib/mysql mysql
 $ hostname -I 
 ```
 
+### ※ ubuntu에서 사용중인 포트 확인 후 삭제하기
+```
+sudo lsof -i:**포트명**
+
+sudo kill -15 **PID**
+```
+
+
 ### docker run -it (centos) bash
  - 도커를 시작하고 안의 컨테이너에 배쉬로 연결
  - 도커내 배쉬에서 빠져나올 때는 **exit** 를 치면 된다
