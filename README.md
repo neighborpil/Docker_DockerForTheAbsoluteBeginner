@@ -112,9 +112,9 @@ sudo kill -15 **PID**
  - 현재 실행중인 컨테이너를 삭제한다
  - 컨테이너 ID는 **docker ps** 커맨드를 했을 때 제일 앞 CONTAINER ID, 제일 뒤 CONTAINER NAMES에서 확인 가능하다
  - 컨테이너 ID는 앞자리 몇개만 있어도 삭제 가능하다
-   + # docker rm zz0
+   + \# docker rm zz0
  - 컨테이너 ID는 여러개를 한꺼번에 지울 수 있다
-   + # docker rm zz0 e30
+   + \# docker rm zz0 e30
    
  ### ※ 도커 컨테이너 일괄삭제
  ```
