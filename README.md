@@ -118,7 +118,7 @@ sudo kill -15 **PID**
    
  ### ※ 도커 컨테이너 일괄삭제
  ```
- #docker rm $(docker ps -a -q)
+ # docker rm $(docker ps -a -q)
  ```
 
 
