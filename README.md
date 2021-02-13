@@ -171,3 +171,41 @@ $ sudo docker exec 406b78f6367f cat /etc/*release*
 **FROM** Ubuntu
 **RUN** apt-get update && apt-get -y install python
 ```
+
+## Code Exmaple
+1. 도커 생성 후 웹서버를 생성한다
+```
+# docker run -it ubuntu bash
+------Inside ubuntu container
+# apt-get update
+# apt-get install -y pyton3
+# python3
+>>> exkt()
+# apt-get install -y python3-pip
+# pip3pip install flask
+# vim /opt/app.py
+---------------------
+import os
+from flask import Flask
+app = Flask(__name__)
+
+@app.route("/")
+def main():
+    return "welcome!"
+
+@app.route('/how are you')
+def hello():
+    return 'I am good, how about you?'
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8080)
+-------------------------------
+# cd /opt
+# FLASK_APP=app.py flask run --host=0.0.0.0
+```
+이후 웹브라우저로 172.17.0.2:5000으로 접속하여 확인
+
+2. 생성 순서를 기록한다
+  1. apt update
+
+  
