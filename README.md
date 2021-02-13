@@ -182,13 +182,12 @@ $ sudo docker exec 406b78f6367f cat /etc/*release*
 # python3
 >>> exkt()
 # apt-get install -y python3-pip
-# pip3pip install flask
+# pip3 install flask
 # vim /opt/app.py
 ---------------------
 import os
 from flask import Flask
 app = Flask(__name__)
-
 @app.route("/")
 def main():
     return "welcome!"
@@ -206,9 +205,9 @@ if __name__ == "__main__":
 이후 웹브라우저로 172.17.0.2:5000으로 접속하여 확인
 
 2. 생성 순서를 기록한다
-2.1. apt update
-2.2. apt install -y python3
-2.3. apt install python3-pip
+2.1. apt-get update
+2.2. apt-get install -y python3
+2.3. apt-get install python3-pip
 2.4. pip3 install flask
 2.5. Create/Copy application code to /opt/app.py
 2.6 FLASK_APP=/opt/app.py flask run --host=0.0.0.0
@@ -218,20 +217,16 @@ if __name__ == "__main__":
 # mkdmir my-simple-webapp
 # cd my-simple-webapp
 # cat > Dockerfile
-import os
-from flask import Flask
-app = Flask(__name__)
 
-@app.route("/")
-def main():
-    return "welcome!"
+FROM ubuntu
 
-@app.route('/how are you')
-def hello():
-    return 'I am good, how about you?'
+Run apt-get update
+RUN apt-get install -y python3 python3-pip
+RUN pip3 install flask
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8080)
+COPY app.py /opt/app.py
+
+ENTRYPOINT FLASk_APP=/opt/app.py flask run --host=0.0.0.0
     
 **Ctrl + C**
 
@@ -257,3 +252,11 @@ if __name__ == "__main__":
 ```
 
 4. 빌드
+
+```
+# docker build .
+# docker build . -t my-simple-webapp
+```
+
+5. 이미지 확인
+# docker images
