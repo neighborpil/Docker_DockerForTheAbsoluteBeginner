@@ -206,6 +206,54 @@ if __name__ == "__main__":
 이후 웹브라우저로 172.17.0.2:5000으로 접속하여 확인
 
 2. 생성 순서를 기록한다
-  1. apt update
+2.1. apt update
+2.2. apt install -y python3
+2.3. apt install python3-pip
+2.4. pip3 install flask
+2.5. Create/Copy application code to /opt/app.py
+2.6 FLASK_APP=/opt/app.py flask run --host=0.0.0.0
 
-  
+3. 폴더 생성 및 옮기기
+```
+# mkdmir my-simple-webapp
+# cd my-simple-webapp
+# cat > Dockerfile
+import os
+from flask import Flask
+app = Flask(__name__)
+
+@app.route("/")
+def main():
+    return "welcome!"
+
+@app.route('/how are you')
+def hello():
+    return 'I am good, how about you?'
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8080)
+    
+**Ctrl + C**
+
+# cat > app.py
+
+import os
+from flask import Flask
+app = Flask(__name__)
+
+@app.route("/")
+def main():
+    return "welcome!"
+
+@app.route('/how are you')
+def hello():
+    return 'I am good, how about you?'
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8080)
+
+**Ctrl + C**
+
+```
+
+4. 빌드
