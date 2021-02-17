@@ -204,13 +204,13 @@ if __name__ == "__main__":
 ```
 이후 웹브라우저로 172.17.0.2:5000으로 접속하여 확인
 
-2. 생성 순서를 기록한다
-2.1. apt-get update
-2.2. apt-get install -y python3
-2.3. apt-get install python3-pip
-2.4. pip3 install flask
-2.5. Create/Copy application code to /opt/app.py
-2.6 FLASK_APP=/opt/app.py flask run --host=0.0.0.0
+2. 생성 순서를 기록한다<br>
+2.1. apt-get update<br>
+2.2. apt-get install -y python3<br>
+2.3. apt-get install python3-pip<br>
+2.4. pip3 install flask<br>
+2.5. Create/Copy application code to /opt/app.py<br>
+2.6 FLASK_APP=/opt/app.py flask run --host=0.0.0.0<br>
 
 3. 폴더 생성 및 옮기기
 ```
