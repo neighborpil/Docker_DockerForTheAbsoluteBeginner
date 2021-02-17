@@ -255,8 +255,10 @@ if __name__ == "__main__":
 
 ```
 # docker build .
-# docker build . -t my-simple-webapp
+# docker build . -t neighborpil/my-simple-webapp
 ```
 
 5. 이미지 확인
-# docker images
+\# docker images
+
+
