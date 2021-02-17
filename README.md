@@ -228,7 +228,7 @@ COPY app.py /opt/app.py
 
 ENTRYPOINT cd /opt && FLASk_APP=/opt/app.py flask run --host=0.0.0.0
     
--- Ctrl + C로 아웃
+-- Ctrl + C로 파일 작성 종료
 
 # cat > app.py
 
@@ -247,7 +247,7 @@ def hello():
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080)
 
-**Ctrl + C**
+-- Ctrl + C로 파일 작성 종료
 
 ```
 
