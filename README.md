@@ -228,7 +228,7 @@ COPY app.py /opt/app.py
 
 ENTRYPOINT cd /opt && FLASk_APP=/opt/app.py flask run --host=0.0.0.0
     
-**Ctrl + C**
+-- Ctrl + C로 아웃
 
 # cat > app.py
 
