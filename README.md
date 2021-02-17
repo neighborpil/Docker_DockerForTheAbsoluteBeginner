@@ -259,6 +259,19 @@ if __name__ == "__main__":
 ```
 
 5. 이미지 확인
+
 \# docker images
 
+6. repository에 푸시하기
+ - 먼저 로그인이 되어 있어야 한다
+   + \# docker login
+   + 만약 없다면 https://hub.docker.com에서 생성해야 한다
+ 
+ - 이미지를 빌드한다
+   + 빋드할 때에 반드시 name을 입력해야 한다
+   + \# docker build . -t **neighborpil**/my-simple-webapp
+ - 이미지를 푸시한다
+   + docker push **계정명**/**이미지명**
 
+ - 웹브라우저로 hug.docker.com에 로그인하여 생성된 리파지토리 확인한다.
+ 
