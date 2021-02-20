@@ -64,8 +64,10 @@ $ sudo docker run docker/whalesay cowsay Hello-World!
    + -p **외부포트**:**내부포트** : 외부 포트와 내부 포트를 연결해준다(도커 인터넷 실행 예제 이미지: kodekloud/simple-app)
    + -v **외부경로**:**내부경로** : 컨테이너에서 발생하는 데이터를 외부경로에 저장한다
    + -u **사용자명** : 도커 실행을 위한 사용자를 지정한다
+   + -e **환경변수** : 환경변수를 지정하는 것이 가능하다(export 변수명=값), 설정된 변수는 docker **insptect** 컨테이너명으로 확인 가능
 ```
 docker run -v /opt/datadir:/var/lib/mysql mysql
+docker run -e APP_COLOR=green simple-webapp-color
 ```
 ```
 # cd
