@@ -65,6 +65,7 @@ $ sudo docker run docker/whalesay cowsay Hello-World!
    + -v **외부경로**:**내부경로** : 컨테이너에서 발생하는 데이터를 외부경로에 저장한다
    + -u **사용자명** : 도커 실행을 위한 사용자를 지정한다
    + -e **환경변수** : 환경변수를 지정하는 것이 가능하다(export 변수명=값), 설정된 변수는 docker **insptect** 컨테이너명으로 확인 가능
+   + --link **host컨테이너명**:**내부 지칭명**(Deprecated) : DB와 같이 다른 컨테이너를 연결하여 사용한다
 ```
 docker run -v /opt/datadir:/var/lib/mysql mysql
 docker run -e APP_COLOR=green simple-webapp-color
@@ -289,5 +290,9 @@ if __name__ == "__main__":
  - Docker-compose.yml
    + yaml 포맷 파일
    + 도커 설정파일
-   
- 
+ - Version2이후에는 yaml 파일 내에 **Version: 버전**을 명시해줘야 함
+## 버전별 차이점
+ - Version 1
+   + bridged네트워크만 사용
+   + link로 다른 컨테이너를 연결해줘야함
+ - Version 2 
