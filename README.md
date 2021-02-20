@@ -276,4 +276,18 @@ if __name__ == "__main__":
    + docker push **계정명**/**이미지명**
 
  - 웹브라우저로 hug.docker.com에 로그인하여 생성된 리파지토리 확인한다.
+
+## ENTRYPOINT AND CMD
+ - ENTRYPOINT : 도커파일에서 실행할 프로그램
+   + 다시 입력받는 것 불가능
+ - CMD : 도커파일에서 실행될 명령어
+   + Docker run 커맨드로 도커 실행시 다시 입력이 가능하다
+
+# [DOCKER COMPOSE]
+ - 여러개의 도커 컨테이너를 묶어서 실행하는 것
+ - yaml 설정파일을 설정하고 추후에 **\# docker-compose up** 명령어로 실행
+ - Docker-compose.yml
+   + yaml 포맷 파일
+   + 도커 설정파일
+   
  
