@@ -296,3 +296,33 @@ if __name__ == "__main__":
    + bridged네트워크만 사용
    + link로 다른 컨테이너를 연결해줘야함
  - Version 2 
+
+## 도커 Compose 예제
+
+```
+apt install git
+
+mkdir sample-application
+cd sample-application
+git clone https://github.com/neighborpil/example-voting-app.git
+cd example-voting-app
+cd vote
+docker build . -t voting-app
+docker run -d --name=redis redis
+docker run -d -p 5000:80 --link redis:redis voting-app
+docker run -d --name=db -e POSTGRES_PASSWORD=postgres postgres:9.4
+cd ..
+cd worker
+cat Dockerfile
+docker build . -t worker-app
+docker run --link redis:redis --link db:db worker-app
+
+
+
+
+
+
+
+
+
+```
