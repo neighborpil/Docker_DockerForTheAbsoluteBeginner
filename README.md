@@ -315,8 +315,12 @@ cd ..
 cd worker
 cat Dockerfile
 docker build . -t worker-app
-docker run --link redis:redis --link db:db worker-app
-
+docker run -d --link redis:redis --link db:db worker-app
+cd ..
+cd result
+ls -l
+cat Dockerfile
+docker build . -t result-app
 
 
 
