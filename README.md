@@ -321,6 +321,12 @@ cd result
 ls -l
 cat Dockerfile
 docker build . -t result-app
+docker run -d -p 5001:80 --link db:db result-app
+```
+이후 127.0.0.1:5000에서 투표하고 127.0.0.1:5001에서 결과 확인 가능
+
+
+
 
 
 
