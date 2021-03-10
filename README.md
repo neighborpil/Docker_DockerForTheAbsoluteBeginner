@@ -325,9 +325,73 @@ docker run -d -p 5001:80 --link db:db result-app
 ```
 이후 127.0.0.1:5000에서 투표하고 127.0.0.1:5001에서 결과 확인 가능
 
+-----------------------------
+# [Docker Compose]
+
+## 설치방법
+ 1. 설치 페이지에서 설치 방법 확인
+```
+https://docs.docker.com/compose/install/
+```
+ 2. 설치파일 다운로드 url 
+
+```
+sudo curl -L "https://github.com/docker/compose/releases/download/1.28.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+```
+ 3. 권한 부여
+```
+sudo chmod +x /usr/local/bin/docker-compose
+```
+ 4. 실행중인 컨테이너가 있다면 종료
+```
+docker stop $(docker ps -q)
+```
+ 5. docker-compse 파일 제작
+```
+cat > docker-compose.yml
+redis:
+
+vi docker-compose.yml
+redis:
+  image: redis
+
+db:
+  image: postgres:9.4
+  environment:
+    - POSTGRES_PASSWORD=postgres
+
+vote:
+  image: voting-app
+  ports:
+    - 5000:80
+  links:
+    - redis
+
+worker:
+  image: worker-app
+  links:
+    - db
+    - redis
+
+result:
+  image: result-app
+  ports:
+    - 5001:80
+  links:
+    - db
+
+:wq
+
+```
+
+ 6. 도커 컴포즈 시작
+```
+docker-compose up
+```
 
 
-
+## Compose File References
+ - 버전확인 : https://docs.docker.com/compose/compose-file/
 
 
 
