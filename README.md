@@ -393,6 +393,39 @@ docker-compose up
 ## Compose File References
  - 버전확인 : https://docs.docker.com/compose/compose-file/
 
+## Docker Compose Version "3"
+ - 상단에 버전 명시 필요(version: "3")
+ - services:이하에 실제 내용 작성
+ - 내부 네트워크를 사용하기 때문에 link없어도 된다
+ - 
+```
+version: "3"
+services:
+
+  redis:
+    image: redis
+
+  db:
+    image: postgres:9.4
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+  vote:
+    image: voting-app
+    ports:
+      - 5000:80
+
+  worker:
+    image: worker-app
+
+  result:
+    image: result-app
+    ports:
+      - 5001:80
+
+```
+
 
 
 
