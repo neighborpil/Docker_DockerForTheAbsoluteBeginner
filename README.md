@@ -397,7 +397,7 @@ docker-compose up
  - 상단에 버전 명시 필요(version: "3")
  - services:이하에 실제 내용 작성
  - 내부 네트워크를 사용하기 때문에 link없어도 된다
- - 
+
 ```
 version: "3"
 services:
@@ -426,10 +426,46 @@ services:
 
 ```
 
+# [Docker Registry]
+ - 이미지는 기본적으로 **유저계정/이미지명** 으로 구성된다
+ - 기본적으로 이미지는 앞에 docker.io라는 레지스트리가 생략된 상태이다.
+```
+docker.io/nginx/nginx
+```
+ - docker.io는 public 레지스트리로, 프라이빗 레지스트리 사용도 가능하다.
+ - private registry를 사용할 경우 pull 또는 push 할 때에 로그인을 해야한다
+ - 유명한 private registry에는 azure, aws등이 있다
+ - 사용방법
+   1. 로그인을 실시한다
+```
+docker login private-registry.io
+```
 
+   3. 이미지를 실행한다
+```
+docker run private-registry.io/apps/internal-app
+```
 
+## private registry를 사용하지 않고 실행중인 이미지를 배포하는 방법
+  - docker는 자체로 registry의 기능을 한다
 
-
-
-
+1. 이미지를 실행한다
+```
+docker run -d -p 5000:5000 --name registry registry:2
+```
+2. docker image tag를 써서 이미지를 생성한다
+```
+docker image tag my-image localhost:5000/my-image
+```
+3. 이미지를 push한다
+```
+docker push localhost:5000/my-image
+```
+4. 이미지를 pull한다
+```
+docker pull localhost:5000/my-image
+```
+5. 원격지에서 이미지를 pull한다
+```
+docker pull 192.168.56.100:5000/my-image
 ```
