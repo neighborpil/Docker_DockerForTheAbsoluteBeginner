@@ -171,8 +171,8 @@ $ sudo docker exec 406b78f6367f cat /etc/*release*
  6. Run the web server using "flast" command
  
 ```
-**FROM** Ubuntu
-**RUN** apt-get update && apt-get -y install python
+FROM Ubuntu
+RUN apt-get update && apt-get -y install python
 ```
 
 ## Code Exmaple
