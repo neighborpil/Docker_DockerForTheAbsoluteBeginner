@@ -90,9 +90,9 @@ $ hostname -I
 
 ### ※ ubuntu에서 사용중인 포트 확인 후 삭제하기
 ```
-sudo lsof -i **프로토콜명(TCP, UDP..)**:**포트명**
+sudo lsof -i 프로토콜명(TCP, UDP..):포트명
 
-sudo kill -15 **PID**
+sudo kill -15 PID
 ```
 
 ### docker run -it (centos) bash
