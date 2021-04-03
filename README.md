@@ -183,7 +183,7 @@ RUN apt-get update && apt-get -y install python
 # apt-get update
 # apt-get install -y pyton3
 # python3
->>> exkt()
+>>> exit()
 # apt-get install -y python3-pip
 # pip3 install flask
 # vim /opt/app.py
