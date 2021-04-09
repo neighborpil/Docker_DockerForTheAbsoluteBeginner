@@ -66,6 +66,8 @@ $ sudo docker run docker/whalesay cowsay Hello-World!
    + -u **사용자명** : 도커 실행을 위한 사용자를 지정한다
    + -e **환경변수** : 환경변수를 지정하는 것이 가능하다(export 변수명=값), 설정된 변수는 docker **insptect** 컨테이너명으로 확인 가능
    + --link **host컨테이너명**:**내부 지칭명**(Deprecated) : DB와 같이 다른 컨테이너를 연결하여 사용한다
+   + --cups=[소수점] : 사용하는 CPU의 사용량을 제한한다
+   + --memory=[용량단위] : 사용하는 메모리의 용량을 제한한다(ex: --memory=[100m], --memory=[1g] 
 ```
 docker run -v /opt/datadir:/var/lib/mysql mysql
 docker run -e APP_COLOR=green simple-webapp-color
@@ -468,4 +470,48 @@ docker pull localhost:5000/my-image
 5. 원격지에서 이미지를 pull한다
 ```
 docker pull 192.168.56.100:5000/my-image
+```
+
+----------------
+# [Docker Engine]
+ - 도커는 3부분으로 구성되어 있다
+   + Docker CLI : 사용자의 명령어를 입력하는 부분
+   + REST API : 사용자의 명령어를 받아들이는 부분
+   + Docker Deamon : 도커의 명령어를 처리하는 부분
+ - Docker CLI는 원격에서 실행 가능하다
+
+## 도커가 virtual 시스템이면서 host운영체제의 자원을 모두 운영가능한 이유
+ - 리눅수의 PID시스템을 이용하여서 사용 가능하다
+ - 리눅스는 PID1이 실행되고 다른 모든 child 프로세스를 실행시킨다
+ - 도커는 가상 머신을 실행시킬 때 리눅스의 PID를 부여하고, 내부적으로 가상 PID를 1부터 다시 부여해 사용한다
+
+도커 PID 확인(도커 내에서는 PID1이 운영체제에서 다르게 부여되어 있다
+```
+docker exec 922fc85fb203 ps -eaf
+
+ps -eaf | grep /usr/local/openjdk-11/bin
+```
+
+
+## 도커 명령어 실행[exec]
+ - 도커 커멘드를 실행한다
+
+## docker exec [컨테이너ID] ps -eaf
+ - 현재 컨테이너에서 실행중인 모든 프로세스를 표시한다
+
+----------------
+# [Docker Storage]
+ - 도커를 설치하면 /var/lib/docker 폴더가 생성되고 그 아래에 나머지 프로그램들이 설치된다
+ - 도커는 명령어를 한 라인씩 실행하면 각각의 레이어를 만들고 변경사항만을 기록한다
+ - 도커의 이미지에서 생성 또는 수정한 파일은 컨테이너가 종료되면 사라진다
+ - 파일을 보존하고 싶다면 read/write layer를 설정해야한다
+   + **볼륨마운팅**: docker volumn create data_volumn:/var/lib/mysql mysql
+   + 위와 같이 하여 볼륨을 생성한다
+   + docker run -v data_volumn:/var/lib/mysql mysql
+   + 위와 같이 실행하면 /var/lib/mysql 폴더내의 모든 파일들은 호스트 운영체제의 /var/lib/docker/volumns/data_volumn에 저장이 된다
+   + **바인드마운팅**: 만약 외부의 저장소에 저장하고 싶다면 -v옵션을 아래와 같이 하면 된다
+   + docker run -v /data/mysql:/var/lib/mysql mysql
+   + -v 옵션을 사용하는 것은 옛날 방식이고 요즘에는 **--mount**옵션을 사용한다
+```
+docker run --mount type=bind,source=/data/mysql,target=/var/lib/mysql mysql
 ```
