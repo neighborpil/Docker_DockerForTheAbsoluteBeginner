@@ -66,7 +66,7 @@ $ sudo docker run docker/whalesay cowsay Hello-World!
    + -u **사용자명** : 도커 실행을 위한 사용자를 지정한다
    + -e **환경변수** : 환경변수를 지정하는 것이 가능하다(export 변수명=값), 설정된 변수는 docker **insptect** 컨테이너명으로 확인 가능
    + --link **host컨테이너명**:**내부 지칭명**(Deprecated) : DB와 같이 다른 컨테이너를 연결하여 사용한다
-   + --cups=[소수점] : 사용하는 CPU의 사용량을 제한한다
+   + --cpus=[소수점] : 사용하는 CPU의 사용량을 제한한다
    + --memory=[용량단위] : 사용하는 메모리의 용량을 제한한다(ex: --memory=[100m], --memory=[1g] 
 ```
 docker run -v /opt/datadir:/var/lib/mysql mysql
