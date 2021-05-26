@@ -515,3 +515,15 @@ ps -eaf | grep /usr/local/openjdk-11/bin
 ```
 docker run --mount type=bind,source=/data/mysql,target=/var/lib/mysql mysql
 ```
+
+### 도커 설치정보 확인
+ - docker info
+```
+docker info
+```
+
+### 도커 이미지 히스토리 확인
+ - docker history 이미지명:버전
+```
+docker history tomcat:latest
+```
