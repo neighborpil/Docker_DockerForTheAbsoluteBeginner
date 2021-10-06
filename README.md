@@ -540,3 +540,5 @@ docker build .
 ```
 docker build . -t simple-webapp
 ```
+
+## 도커 스토리지
