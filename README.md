@@ -545,3 +545,9 @@ docker build . -t simple-webapp
  - docker info 명령어를 통하여 자기가 어떤 스토리지 타입인지 확인 가능
 ### 드라이별 Default storage drivers
  - Ubuntu: All 
+
+#### ※현재 디렉토리내 파일 용량 구하기
+```
+du -sh *
+```
+
