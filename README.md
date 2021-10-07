@@ -548,6 +548,14 @@ docker build . -t simple-webapp
 
 #### ※현재 디렉토리내 파일 용량 구하기
 ```
-du -sh *
+#du -sh *
 ```
+
+### 도커 시스템에서 사용하는 전체 용량 확인
+ - 옵션
+   + -v 각각 이미지들마다 상세 정보를 보여줌
+```
+#docker system df -v
+```
+
 
