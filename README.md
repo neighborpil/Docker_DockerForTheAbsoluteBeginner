@@ -542,3 +542,6 @@ docker build . -t simple-webapp
 ```
 
 ## 도커 스토리지
+ - docker info 명령어를 통하여 자기가 어떤 스토리지 타입인지 확인 가능
+### 드라이별 Default storage drivers
+ - Ubuntu: All 
