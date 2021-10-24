@@ -559,3 +559,5 @@ docker build . -t simple-webapp
 ```
 
 
+#### ※ mysql 비밀번호 초기 설정하기
+$ docker run -d --name mysql-db -e MYSQL_ROOT_PASSWORD=db_pass123 mysql
