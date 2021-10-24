@@ -566,6 +566,9 @@ $ docker run -d --name mysql-db -e MYSQL_ROOT_PASSWORD=db_pass123 mysql
 ## Docker Network
 ### 도커네트워크의 종류
  1. Bridge
+```
+$docker run unbunto
+```
   - 172.17.0.xxx
   - 기본적으로 하나의 브릿지 네트워크가 존재
   - 하지만 추가 할 수 있다
@@ -577,9 +580,16 @@ $ docker run -d --name mysql-db -e MYSQL_ROOT_PASSWORD=db_pass123 mysql
  
  ```
 
- 3. none
+ 2. none
+  - 연결없음
+ ```
+ $docker run Ubuntu --network=none
+ ```
  4. host
   - 호스트의 컨테이너와 동기화가 된다. 하나만 사용가능
+ ```
+ $docker run Ubuntu --network=host
+ ```
 
 ### 도커 네트워크 검색
 ```
@@ -590,3 +600,22 @@ $docker network ls
 $docker inspect container_name
 ```
 
+### 도커 네트워크 서브넷 확인
+```
+$ docker network inspect bridge
+$ docker network inspect wp-mysql-network
+```
+
+### 도커 서브넷 생성하기
+```
+$docker network create --driver bridge --subnet 182.18.0.1/24 --gateway 182.18.0.1 wp-mysql-network
+
+```
+#### ※ mysql 5.6, 초기비밀번호 db_pass123, 이름은 mysql-db, 네트워크는 wp-mysql-network 사용
+```
+docker run -d -e MYSQL_ROOT_PASSWORD=db_pass123 --name mysql-db --network wp-mysql-network mysql:5.6
+```
+#### 포트외부38080, 내부8080, 네트워크:wp-mysql-network, db호스트: mysql-db, db암호: db_pass123
+```
+docker run -d --name webapp --network=wp-mysql-network  -e DB_Host=mysql-db -e DB_Password=db_pass123 -p 38080:8080 --link mysql-db:mysql-db  kodekloud/simple-webapp-mysql
+```
