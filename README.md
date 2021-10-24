@@ -564,4 +564,29 @@ $ docker run -d --name mysql-db -e MYSQL_ROOT_PASSWORD=db_pass123 mysql
 
 
 ## Docker Network
- - ![image](https://user-images.githubusercontent.com/22423285/138595246-8816a7af-5c1b-427f-877c-d9ae06aa7263.png)
+### 도커네트워크의 종류
+ 1. Bridge
+  - 172.17.0.xxx
+  - 기본적으로 하나의 브릿지 네트워크가 존재
+  - 하지만 추가 할 수 있다
+ ```
+ docker network create \
+  -- driver bridge \
+  -- subnet 182.18.0.0/16
+  custom-isolated-network
+ 
+ ```
+
+ 3. none
+ 4. host
+  - 호스트의 컨테이너와 동기화가 된다. 하나만 사용가능
+
+### 도커 네트워크 검색
+```
+$docker network ls
+```
+### 컨테이너의 네트워크를 확인하는 방법
+```
+$docker inspect container_name
+```
+
