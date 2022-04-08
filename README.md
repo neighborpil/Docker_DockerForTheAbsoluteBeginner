@@ -427,6 +427,55 @@ services:
       - 5001:80
 
 ```
+#### ※ 3버전 좀더 디테일하게
+```
+version: '3'
+services:
+  redis:
+    image: redis
+    networks:
+      - back-end
+    volumes:
+      - redis-data:/var/lib/redis
+  db:
+    image: postgres:9.4
+    networks:
+        - back-end
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  vote:
+    image: voting-app
+    ports:
+      - "5000:80"
+    networks:
+        - back-end
+        - front-end
+
+  result:
+    image: result-app
+    ports:
+        - 5001:80
+    networks:
+        - back-end
+        - front-end
+
+  worker:
+    image: worker-app
+    networks:
+        - back-end
+
+networks:
+  front-end:
+    driver: bridge
+  back-end:
+    driver: bridge
+
+volumes:
+  redis-data:
+  db-data:
+```
+
 
 # [Docker Registry]
  - 이미지는 기본적으로 **유저계정/이미지명** 으로 구성된다
