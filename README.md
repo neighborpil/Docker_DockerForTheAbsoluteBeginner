@@ -668,3 +668,10 @@ docker run -d -e MYSQL_ROOT_PASSWORD=db_pass123 --name mysql-db --network wp-mys
 ```
 docker run -d --name webapp --network=wp-mysql-network  -e DB_Host=mysql-db -e DB_Password=db_pass123 -p 38080:8080 --link mysql-db:mysql-db  kodekloud/simple-webapp-mysql
 ```
+
+
+#### 도커 로그 확인
+```
+$ docker logs -f jenkins
+
+```
