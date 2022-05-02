@@ -675,3 +675,49 @@ docker run -d --name webapp --network=wp-mysql-network  -e DB_Host=mysql-db -e D
 $ docker logs -f jenkins
 
 ```
+
+
+
+### Docker-compose 마리아DB 세팅
+ - docker-compose.yml
+ - 마리아 DB 버전 10.1.48
+ - passwordreset.sql파일이 동일 폴더에 있어야함
+ - 외부 포트 3010
+ - 비밀번호 myrootpassword
+```
+version: '3.7'
+services:
+  db-host:
+    container_name: db-host
+    image: mariadb:10.1.48
+    restart: always
+    command: --init-file=/passwordreset.sql
+    ports:
+      - "3310:3306"
+    environment:
+      - TZ=Asia/Seoul
+      - MYSQL_ROOT_PASSWORD=myrootpassword
+    volumes:
+      - "$PWD/db_data:/var/lib/mysql"
+      - "$PWD/passwordreset.sql:/passwordreset.sql:z"
+    networks:
+      - net
+networks:
+  net:
+```
+ - 비밀번호 초기화 파일
+ - passwordreset.sql
+```
+CREATE USER IF NOT EXISTS root@localhost IDENTIFIED BY 'myrootpassword';
+SET PASSWORD FOR root@localhost = PASSWORD('myrootpassword');
+GRANT ALL ON *.* TO root@localhost WITH GRANT OPTION;
+
+CREATE USER IF NOT EXISTS root@'%' IDENTIFIED BY 'myrootpassword';
+SET PASSWORD FOR root@'%' = PASSWORD('myrootpassword');
+GRANT ALL ON *.* TO root@'%' WITH GRANT OPTION;
+
+CREATE USER IF NOT EXISTS myid@'%' IDENTIFIED BY 'mypassword';
+SET PASSWORD FOR myid@'%' = PASSWORD('mypassword');
+GRANT ALL ON *.* TO myid@'%' WITH GRANT OPTION;
+
+```
