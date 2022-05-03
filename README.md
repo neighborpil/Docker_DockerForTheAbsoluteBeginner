@@ -721,3 +721,76 @@ SET PASSWORD FOR myid@'%' = PASSWORD('mypassword');
 GRANT ALL ON *.* TO myid@'%' WITH GRANT OPTION;
 
 ```
+
+
+### Docker-compose 톰캣 & 마리아DB 세팅
+ - docker-compose.yml
+```
+version: '3.7'
+services:
+  roman2023_db:
+    container_name: roman2023_db
+    image: mariadb:10.1.48
+    restart: always
+    command: --init-file=/passwordreset.sql
+    ports:
+      - "3310:3306"
+    environment:
+      - TZ=Asia/Seoul
+      - MYSQL_ROOT_PASSWORD=rqlalf1004
+    volumes:
+      - "$PWD/mariadb/db_data:/var/lib/mysql"
+      - "$PWD/mariadb/passwordreset.sql:/passwordreset.sql:z"
+    networks:
+      - net
+  roamn2023_tomcat:
+    container_name: roman2023_tomcat
+    image: tomcat:8.0.53-jre8
+    build:
+      context: $PWD/tomcat/.
+      dockerfile: Dockerfile
+    depends_on:
+      - roman2023_db
+    ports:
+      - "8810:8080"
+      - "10022:22"
+    volumes:
+      - "$PWD/tomcat/webapps:/usr/local/tomcat/webapps"
+      - "$PWD/tomcat/logs:/usr/local/tomcat/logs"
+    networks:
+      - net
+networks:
+  net:
+```
+
+ - mariadb/passwordreset.sql
+```
+CREATE USER IF NOT EXISTS root@localhost IDENTIFIED BY 'rqlalf1004';
+SET PASSWORD FOR root@localhost = PASSWORD('루트비밀번호');
+GRANT ALL ON *.* TO root@localhost WITH GRANT OPTION;
+
+CREATE USER IF NOT EXISTS root@'%' IDENTIFIED BY 'rqlalf1004';
+SET PASSWORD FOR root@'%' = PASSWORD('루트비밀번호');
+GRANT ALL ON *.* TO root@'%' WITH GRANT OPTION;
+
+CREATE USER IF NOT EXISTS bluecom@'%' IDENTIFIED BY 'qlalf1004';
+SET PASSWORD FOR bluecom@'%' = PASSWORD('비밀번호');
+GRANT ALL ON *.* TO bluecom@'%' WITH GRANT OPTION;
+```
+
+ - tomcat/Dockerfile
+ - 원래 톰캣 이미지가 shutdown되면 바로 꺼진다. 안꺼지게 하기 위해 entrypoint에 tail 붙여줌
+```
+FROM tomcat:8.0.53-jre8
+
+RUN apt-get update
+
+RUN apt-get -y upgrade
+
+RUN apt-get install -y openssh-server
+
+RUN echo "root:루트비밀번호" | chpasswd
+
+ENTRYPOINT service ssh restart && tail -F /usr/local/tomcat/logs/catalina.out
+
+```
