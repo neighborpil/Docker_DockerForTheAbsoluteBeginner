@@ -780,6 +780,9 @@ GRANT ALL ON *.* TO bluecom@'%' WITH GRANT OPTION;
 
  - tomcat/Dockerfile
  - 원래 톰캣 이미지가 shutdown되면 바로 꺼진다. 안꺼지게 하기 위해 entrypoint에 tail 붙여줌
+ - 대신 자동으로 시작되지 않는다.
+    + 완료 후 "docker exec -it roman2023_tomcat bash로 들어가서
+    + /usr/local/tomcat/bin/startup.sh 해줘야 실행된다.
 ```
 FROM tomcat:8.0.53-jre8
 
