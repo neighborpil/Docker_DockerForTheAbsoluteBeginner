@@ -822,3 +822,21 @@ VOLUME [ "/sys/fs/cgroup" ]
 CMD ["/usr/sbin/init"]
 
 ```
+--------------------------------------
+### 마리아 DB 구동 스크립트
+ - 버전 10.4
+ - root 비밀번호: adminpassword
+ - mariaStart.sh
+ - volume: db_data
+ - 외부포트 3306
+```
+echo start mariadb 10.4
+echo --------------------
+docker run --name mariadb10.4 \
+        -e MARIADB_ROOT_PASSWORD=adminpassword \
+        -d \
+        --restart=always \
+        -p 3306:3306 \
+        -v $PWD/db_data:/var/lib/mysql \
+        mariadb:10.4
+```
