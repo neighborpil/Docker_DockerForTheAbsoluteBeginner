@@ -737,7 +737,7 @@ services:
       - "3310:3306"
     environment:
       - TZ=Asia/Seoul
-      - MYSQL_ROOT_PASSWORD=rqlalf1004
+      - MYSQL_ROOT_PASSWORD=1234
     volumes:
       - "$PWD/mariadb/db_data:/var/lib/mysql"
       - "$PWD/mariadb/passwordreset.sql:/passwordreset.sql:z"
@@ -765,15 +765,15 @@ networks:
 
  - mariadb/passwordreset.sql
 ```
-CREATE USER IF NOT EXISTS root@localhost IDENTIFIED BY 'rqlalf1004';
+CREATE USER IF NOT EXISTS root@localhost IDENTIFIED BY '1234';
 SET PASSWORD FOR root@localhost = PASSWORD('루트비밀번호');
 GRANT ALL ON *.* TO root@localhost WITH GRANT OPTION;
 
-CREATE USER IF NOT EXISTS root@'%' IDENTIFIED BY 'rqlalf1004';
+CREATE USER IF NOT EXISTS root@'%' IDENTIFIED BY '1234';
 SET PASSWORD FOR root@'%' = PASSWORD('루트비밀번호');
 GRANT ALL ON *.* TO root@'%' WITH GRANT OPTION;
 
-CREATE USER IF NOT EXISTS bluecom@'%' IDENTIFIED BY 'qlalf1004';
+CREATE USER IF NOT EXISTS bluecom@'%' IDENTIFIED BY '1234';
 SET PASSWORD FOR bluecom@'%' = PASSWORD('비밀번호');
 GRANT ALL ON *.* TO bluecom@'%' WITH GRANT OPTION;
 ```
